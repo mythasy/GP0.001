@@ -1,13 +1,18 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private float _score;
+    [SerializeField] private Text _Scoretext;
 
     //update score on display
     public void UpdateScore(int currentScore)
     {
-        scoreText.text = currentScore.ToString();
+        _score++;
+        Debug.Log("SCORE: " + _score);
+
+        _Scoretext.text = "SCORE:" + _score;
     }
 }

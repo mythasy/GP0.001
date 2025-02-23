@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpSpeed = 10f;
 
     [SerializeField] private ScoreKeeper scoreKeeper;
+    [SerializeField] private float _score;
+    [SerializeField] private Text _Scoretext;
+    [SerializeField] private AudioClip _coinpicsound;
 
     private Animator _myAnim;
     private Rigidbody2D _myRigidbody;
@@ -70,10 +74,27 @@ public class PlayerController : MonoBehaviour
     //Check if player collide with gold & destroy gold
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gold"))
+
+        if (collision.gameObject.CompareTag("coin"))
         {
-            scoreKeeper.IncreaseScore();
-            Destroy(collision.gameObject);
+           Destroy(collision.gameObject);
+
+
+           AudioSource.PlayClipAtPoint(_coinpicsound, Camera.main.transform.position);
+
+            IncreaseScore();
+        
         }
+
+        
     }
+
+    private void IncreaseScore()
+    {
+        _score++;
+        Debug.Log("SCORE: " + _score);
+
+        _Scoretext.text = "SCORE:" + _score;
+
+    }//IncreaseScore()
 }

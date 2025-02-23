@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -61,4 +63,26 @@ public class EnemyController : MonoBehaviour
             anim.SetBool("IsPatrolling", true);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+
+            SceneManager.LoadScene("Menu");
+
+
+            //AudioSource.PlayClipAtPoint(_Sound, Camera.main.transform.position);
+
+        }
+
+
+
+
+
+
+
+    }
+
 }
