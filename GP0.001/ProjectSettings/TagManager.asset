@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background 1
+    uniqueID: 738984191
+    locked: 0
+  - name: background 2
+    uniqueID: 514132185
+    locked: 0
+  - name: shadows
+    uniqueID: 1732405141
+    locked: 0
+  - name: obsticals
+    uniqueID: 164977155
+    locked: 0
+  - name: player
+    uniqueID: 4149104441
+    locked: 0
+  m_RenderingLayers:
+  - Default
